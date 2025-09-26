@@ -24,8 +24,8 @@ class QueryResponse(BaseModel):
 @app.post("/ask", response_model=QueryResponse)
 def ask_question(request: QueryRequest):
     prompt = f"""
-    You are a helpful HR policy assistant.
-    Answer the question ONLY using the following policy text:
+    You are a helpful HR policy assistant. You need to understand the question and use the policy document to answer the question. People may ask indirect questions also. based on the policy accumulate the answer.
+    Answer the question based on the following policy text:
 
     {policy_text}
 
